@@ -7,6 +7,7 @@ Apresentação: Esse é um mini projeto CRUD que fiz para o teste de estágio da
 
 
 Especificações que usei:
+
     Python3.9.16
     
     pyrebase4 ou pyrebase
@@ -14,7 +15,9 @@ Especificações que usei:
 
 
 Instalação:
-    pip install pyrebase4 ou 
+
+    pip install pyrebase4 
+    ou
     pip install pyrebase
 
 
