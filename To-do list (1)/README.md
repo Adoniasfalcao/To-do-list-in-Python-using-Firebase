@@ -2,7 +2,7 @@ To-do list using Python and Pyrebase
 
 
 Apresentação: Esse é um mini projeto CRUD que fiz para o teste de estágio da minha escola assim como meu primeiro projeto com Python.
-              Utilizei conceitos que aprendi com os mundos de Python3 - Curso em Vídeo e conceitos aprendidos com o Google Firebase.
+              Utilizei conceitos que aprendi com os mundos de Python3 - Curso em Vídeo e conceitos aprendidos com o Google Firebase. Com o tempo irei atualizá-lo para interface gráfica e outras mudanças.
             
 
 
