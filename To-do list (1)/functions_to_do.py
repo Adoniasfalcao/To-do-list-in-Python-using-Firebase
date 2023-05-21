@@ -61,7 +61,7 @@ def listarTarefas():
 
 def atualizarTarefa():
     listarTarefas()
-    cabeçalho('\nAtualizar tarefa:')
+    cabeçalho('\nAtualizar tarefa [To-do,Doing,Done]:')
 
     global lista_categorias
    
