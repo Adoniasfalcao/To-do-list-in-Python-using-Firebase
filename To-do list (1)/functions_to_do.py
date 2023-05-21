@@ -124,8 +124,7 @@ def apagarTarefa():
             
         except:
             print('Erro ao deletar sua tarefa... Tente novamente.')
-            sleep(1.2)
-            
+           
         else:
             print(f'Tarefa {tarefa} apagada com sucesso!')
         
