@@ -15,8 +15,8 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 #Banco de dados
 db = firebase.database()
 
-#Dados necessários
-dados_tarefa = {'nome_tarefa':'','categoria':''}
+#Restrição das categorias
+lista_categorias = ['To-do','Doing','Done']
 
 
 
@@ -43,13 +43,19 @@ def criarTarefa():
 
 def listarTarefas():
     cabeçalho('\nMostrar tarefas')
+    
+    try:
+        tarefas = db.child("Tarefas").get()
 
-    tarefas = db.child("Tarefas").get()
+        #Lista as tarefas existentes
+        for tarefa in tarefas.each():
+            print(f'▶ {tarefa.key()}')
+            print(f'  ↪ {tarefa.val().get("categoria")}')
 
-    #Lista as tarefas existentes
-    for tarefa in tarefas.each():
-        print(f'▶{tarefa.key()}')
-        print(f'  ↪{tarefa.val().get("categoria")}')
+
+    except:
+        print('Não foi possível listar as tarefas...')
+
 
 
 
@@ -57,6 +63,8 @@ def atualizarTarefa():
     listarTarefas()
     cabeçalho('\nAtualizar tarefa:')
 
+    global lista_categorias
+   
     tarefas_salvas = db.child("Tarefas").get()
     lista_tarefas = []
 
@@ -72,15 +80,17 @@ def atualizarTarefa():
 
     if tarefa not in lista_tarefas:
         print('A tarefa mencionada não está cadastrada...')
-
+    
+    elif categoria not in lista_categorias:
+        print('Selecione uma categoria válida!')
+   
     else:
-        try:    
-            if tarefa.strip() and categoria.strip() != '':
-                db.child('Tarefas').child(tarefa).update({'categoria':categoria})
+     
+        try:
+            db.child('Tarefas').child(tarefa).update({'categoria':categoria})
         
         except:
             print('Erro para atualizar tarefa...')
-            sleep(1.2)
             
         else:
             print('Tarefa alterada com sucesso!')
